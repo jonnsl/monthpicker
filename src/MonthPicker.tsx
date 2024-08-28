@@ -10,7 +10,6 @@ export type YearMonth = {
 }
 
 type MonthPickerProps = {
-  isClearable?: boolean;
   name?: string;
   className?: string;
   value: YearMonth | null;
@@ -26,7 +25,7 @@ const defaultMin = { year: 1970, month: 0 }
 const defaultMax = { year: 2037, month: 11 }
 
 export default function MonthPicker(props: MonthPickerProps) {
-  const { value, name, className = '', isClearable = false, onChange, min = defaultMin, max = defaultMax, currentYear = defaultCurrentYear } = props
+  const { value, name, className = '', onChange, min = defaultMin, max = defaultMax, currentYear = defaultCurrentYear } = props
   const [open, setOpen] = useState(false)
   const [year, setYear] = useState(2021)
 
@@ -36,10 +35,6 @@ export default function MonthPicker(props: MonthPickerProps) {
 
   const hideCalendar = (): void  => {
     setOpen(false)
-  }
-
-  const clearInput = (): void => {
-    onChange(null)
   }
 
   const goToCurrentYear = (): void => {
@@ -69,15 +64,7 @@ export default function MonthPicker(props: MonthPickerProps) {
     if (event.key === 'Escape') {
       event.preventDefault()
       hideCalendar()
-      if (isClearable) {
-        clearInput()
-      }
     }
-  }
-
-  const onClearInputClick = (_: MouseEvent) => {
-    hideCalendar()
-    clearInput()
   }
 
   return (
@@ -95,7 +82,6 @@ export default function MonthPicker(props: MonthPickerProps) {
         onBlur={hideCalendar}
         onKeyDown={handleKeyDown}
         className={className + ' monthpicker_input'} />
-      { isClearable && value ? <i className="glyphicon glyphicon-remove-circle monthpicker_clear_icon" onClick={onClearInputClick}></i> : null }
       <div
         className="monthpicker"
         style={{ display: open ? 'block' : 'none' }}

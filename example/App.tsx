@@ -7,10 +7,7 @@ import MonthPicker, { YearMonth } from '../src/MonthPicker'
 export default function App() {
   const [value, setValue] = useState<YearMonth | null>(null)
   return (
-    <MonthPicker
-      isClearable
-      value={value}
-      onChange={setValue}/>
+    <MonthPicker value={value} onChange={setValue}/>
   )
 }
 
