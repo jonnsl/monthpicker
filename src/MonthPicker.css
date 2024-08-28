@@ -1,0 +1,93 @@
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.monthpicker {
+  width: 145px;
+  z-index: 999;
+  border: 1px solid rgba(0, 0, 0, .15);
+  border-radius: 4px;
+  padding: 4px;
+  background-color: #fff;
+  position: absolute;
+}
+
+.monthpicker table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.monthpicker th {
+  font-weight: 700;
+  text-align: center;
+  height: 30px;
+}
+
+.monthpicker th.prev {
+  padding-left: 8px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.monthpicker th.next {
+  padding-right: 8px;
+  text-align: right;
+  cursor: pointer;
+}
+
+.monthpicker_arrow {
+  width: 37px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.monthpicker_arrow img {
+  width: 16px;
+  height: 16px
+}
+
+.prev .monthpicker_arrow {
+  justify-content: left;
+}
+
+.next .monthpicker_arrow {
+  justify-content: right;
+}
+
+.monthpicker td {
+  width: 45px;
+  height: 45px;
+  border-radius: 4px;
+}
+.monthpicker td:hover {
+  background-color: #eee;
+}
+
+.monthpicker td a {
+  display: block;
+  height: 100%;
+  line-height: 45px;
+  text-align: center;
+  color: #636b6f;
+  text-decoration: none;
+}
+.monthpicker td a:hover {
+  color: #000;
+  text-decoration: none;
+}
+
+.monthpicker td.selected {
+  background-color: #2579a9;
+  border-color: #1f648b;
+}
+.monthpicker td.selected a {
+  color: #fff;
+}
